@@ -1,0 +1,44 @@
+﻿@model ShopingCartViewModel
+
+
+<h3 class="my-5">
+    Shopping cart
+</h3>
+
+
+<section class="row gx-3">
+    <section class="col-8">
+        @foreach (var line in Model.ShopingCart.ShopingCartItems)
+        {
+            <section class="card shopping-cart-card mb-2">
+                <section class="row">
+                    <section class="col-md-4">
+                        <img src="@line.Pie.ImageThumbnailUrl" class="img-fluid rounded-start p-2" alt="@line.Pie.Name">
+                    </section>
+                    <section class="col-md-8">
+                        <section class="card-body">
+                            <h5 class="card-text">@line.Amount x @line.Pie.Name</h5>
+                            <section class="d-flex justify-content-between">
+                                <h6>@line.Pie.ShortDescription</h6>
+                                <h2>@line.Pie.Price.ToString("#,0.00 $")</h2>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+        }
+    </section>
+    <section class="col-4">
+        <section class="card shopping-cart-card p-3">
+            <section class="row">
+                <h4 class="col">Total:</h4>
+                <h4 class="col text-end">@Model.ShopingCartTotal.ToString("#,0.00 $")</h4>
+            </section>
+            <hr />
+            <section class="text-center d-grid">
+                <a class="btn btn-secondary" asp-controller="order" asp-action="checkout"><h4>Checkout Now</h4></a>
+                <a class="btn btn-outline-secondary" asp-page="/CheckoutPage"><h4>Checkout Now By Razor Pages!</h4></a>
+            </section>
+        </section>
+    </section>
+</section>

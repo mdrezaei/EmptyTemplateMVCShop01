@@ -1,0 +1,93 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EmptyMVCShop01
+build_property.RootNamespace = EmptyMVCShop01
+build_property.ProjectDir = G:\soft were\Microsoft Visual Studio\project2019c#\ASP.NET Core\Pluralsight\Asp.net core 6 Fundamentals\EmptyMVCShop01\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = G:\soft were\Microsoft Visual Studio\project2019c#\ASP.NET Core\Pluralsight\Asp.net core 6 Fundamentals\EmptyMVCShop01
+build_property._RazorSourceGeneratorDebug = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Pages/CheckoutCompletePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXRDb21wbGV0ZVBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Pages/CheckoutPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXRQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Pages/Shared/_PageLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9QYWdlTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Order/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ2hlY2tvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Order/CheckoutComplete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ2hlY2tvdXRDb21wbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Pie/PieDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGllXFBpZURldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Pie/PieList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGllXFBpZUxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Shared/Components/CategoryMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlNZW51XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Shared/Components/ShopingCartSummery/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2hvcGluZ0NhcnRTdW1tZXJ5XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Shared/_Carousel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXJvdXNlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/Shared/_PieCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QaWVDYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/ShopingCart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcGluZ0NhcnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/soft were/Microsoft Visual Studio/project2019c\#/ASP.NET Core/Pluralsight/Asp.net core 6 Fundamentals/EmptyMVCShop01/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

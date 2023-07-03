@@ -1,0 +1,131 @@
+﻿@model Order
+
+<form asp-action="Checkout" method="post" role="form">
+    <h3 class="my-5">
+        you are just one step away from your pie!
+    </h3>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    @*
+        خب این تگ هلپر که همه پیام های خطا رو قراره نشون بده توی تگ فرم قرار میگیره
+        و اینکه این تگ هلپر با تگ سکشن کار نمیکنه و درعوض با دیو کار میکنه
+        این راه کلی بود یه راه دیگه هم داره که بریم برای هر اینپوت با تگ اسپن نشونش بدیم
+        و تگ اسپن از تگ هلپر
+        asp-validation-for
+        و مقدار تگ هلپر بجای همه ، اسم پراپرتیمون باشه
+    *@
+
+    <section class="col-6">
+        <section class="row g-2">
+            <section class="col-12">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+                @*
+                https://stackoverflow.com/questions/57394092/asp-for-tag-helper-functionality
+                asp-for sets the id, name and validation related attributes, and 
+                it also sets the value of the input element if there is already a value within the model passed to the view
+
+                The value comes from ModelState, which is composed from Request, ViewData/ViewBag, and Model.
+                Model is the last source, so anything from the request or ViewData will override any value on the model
+
+                پس نه فقط کار فور معمولی رو انجام میده که حتی دیتا رو هم اینور اونر میکنه و حتی ست میکنه
+
+                میاد اینپوت فرست نیم رو میکنه داخل پراپرتی فرست نیم
+
+                باید هم همنام با پراپرتی باشه ها یعنی اگه متفاوت باشه ارور میده
+
+                حالا همه این ولیدیشن هایی که تا اینجا انجام دادیم ولیدیشن های سرور ساید بودن که وجودشون الزامیه
+                ولی ولیدیشن های کلاینت ساید چطور؟
+
+                برای کلاینت ساید 
+                این سرور ساید ای اس پی میاد موقع رندر اچ تی ام ال چند تا تگ ولیدیشن میسازه خودش
+                این تگ ها اتربیوت 
+                data-val-
+                دارن
+                که خب برای کلاینت ساید هستند یعنی ای اس پی میاد دیفالت اینارو میسازه چون
+                ما از سمت سرور کد زدیم که ولیدیشن رو چک کنه
+                این اتربیوت های دیتا دش ول از اتربیوت های تگ اینپوت هستند
+                خب این سرور ساید بود که توی کلاینت ساید میاد کد جنریت میکنه
+                حالا ما میایم از فریم ورک های کلاینت ساید در کنار سرور ساید برای ولیدیشن فرممون استفاده میکنیم
+                ما اینجا از جی کوئری استفاده میکنیم
+                از پلاگین ولیدیت جیکوئری همراه با جیکوئری ولیدیشن استفاده میکنیم
+                خلاصه که ما کار خاصی لازم نیست بکنیم چون همش رو خود ای اس پی برامون انجام داده و میده
+                خب برای اوردن جیکوئری ها
+                باید پکیج های کلاینت ساید رو اد کنیم
+                برای اد میریم روی اسم پروژه و کلیک راست اد کلاینت ساید لایبرری
+                پرووایدر 
+                cdnjs
+                اسم لایبرری
+                jquery-validate
+                و یک لایبرری دیگه هم باید اد کنیم 
+                بعد از اد بالایی پایینی رو هم اد میکنیم
+                jquery-validation-unobtrusive
+                و اینکلود ال لایبرری فایلز
+                همه فایل ها تیک خورده باشه
+                تارگت لکیشنش هم 
+                پوشه داب داب داب روت / لیب / اسم خود لایبرری
+                اینستال
+                خب حالا میبینیم که توی پوشه داب داب داب روت / لیب اضافه شدن و در
+                فایل لیبمن دات جیسان هم تعغیر کرده و جیسان این دوتا لایبرری هم اضافه شده 
+                حالا بریم توی لی اوت
+                توی تگ هد
+                با تگ اسکریپت 
+                توی اتربیوت اس ار سی اضافه میکنیم
+                کد هاش رو این پایین مینویسم
+                <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+                <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+                حالا بیلد
+                اوکی کلاینت ساید هم تموم شد حالا اگه سرور ساید کار نکنه هم سمت کلاینت ولیدیشن رو چک میکنه
+                برای تست این موضوع میریم و توی اکشن متد پست  ، بریک پوینت میزاریم که به
+                مادل استیت نرسه و حالا ولیدیشن رو توی اپلیکیشنمون چک میکنیم
+                *@
+            </section>
+            <section class="col-12">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" />
+            </section>
+            <section class="col-12">
+                <label asp-for="AddressLine1" class="form-label"></label>
+                <input asp-for="AddressLine1" class="form-control" />
+            </section>
+            <section class="col-12">
+                <label asp-for="AddressLine2" class="form-label"></label>
+                <input asp-for="AddressLine2" class="form-control" />
+            </section>
+            <section class="col-6">
+                <label asp-for="City" class="form-label"></label>
+                <input asp-for="City" class="form-control" />
+            </section>
+            <section class="col-6">
+                <label asp-for="ZipCode" class="form-label"></label>
+                <input asp-for="ZipCode" class="form-control" />
+            </section>
+            <section class="col-6">
+                <label asp-for="State" class="form-label"></label>
+                <input asp-for="State" class="form-control" />
+            </section>
+            <section class="col-6">
+                <label asp-for="Country" class="form-label"></label>
+                <input asp-for="Country" class="form-control" />
+            </section>
+            <section class="col-12">
+                <label asp-for="Email" class="form-label">Email Address</label>
+                <input asp-for="Email" class="form-control" />
+            </section>
+            <section class="col-12">
+                <label asp-for="PhoneNumber" class="form-label">Phone Number1</label>
+                <input asp-for="PhoneNumber" class="form-control" />
+            </section>
+            <section class="mt-2">
+                <section class="col-md-offset-2 col-md-5">
+                    <input type="submit" value="Submit Order" class="btn btn-secondary" />
+                </section>
+                @*
+                    این سابمیت هم چون توی فرم هست فرم رو سابمیت میکنه
+                    پست رو فعال میکنه به سمت چکاوت اکشن توی اوردر کنترلر
+                *@
+            </section>
+        </section>
+    </section>
+</form>

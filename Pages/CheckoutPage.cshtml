@@ -1,0 +1,90 @@
+﻿@page
+@model EmptyMVCShop01.Pages.CheckoutPageModel
+@*
+    میبینیم که این مادل بعد از اسم ریزور پیجی که ما روش گذاشتیم یک مادل هم به اخرش اضافه شده
+*@
+
+
+
+
+@*
+    خب این فرم پایین تگ هلپر ای اس پی اکشن رو نداره چون
+    لازم نیست مشخص کنیم که به کدوم اکشن متد از کنترلری که توی پوشه ویوش هست قراره که ارسال بشه
+    این فرم به تابع ان پست خود همین پیج در کد بیهایندش میره
+*@
+<form method="post" role="form">
+    <h3 class="my-5">
+        you are just one step away from your pie!
+    </h3>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <section class="col-6">
+        <section class="row g-2">
+            <section class="col-12">
+                @*
+                    پایین توی ای اس پی فور نوشتیم اوردر دات چون توی ویو ام وی سی ما اوردر رو
+                    پاس دادیم به ویو ولی اینجا
+                    ما مدلمون برای این پیج کل کد بیهایند هستش پس نمیشه همینجوری از پراپرتی های اوردر استفاده کرد
+
+                    موضوع بعدی اینه که تگ هلپر ها رو نمیشناسه ما تگ هلپر ها رو توی ویو اینپورتس در فولدر ویوز اضافه کرده بودیم
+                    حالا باید همه چیز رو توی پوشه پیجز هم اضافه کنیم
+                    پس در فولدر پیجز یک فولدر شیرد میسازیم
+                    توی این پوشه ما ریزور لی اوت اضافه میکنیم
+                    حالا توی فولدر پیجز ما ریزور ویو استارت اضافه میکنیم که موقع استارت بدونه اول کدوم ویو رو نشون بده
+                    بعدش دوباره توی فولدر پیجز باید ریزور ویو ایمپورتس اضافه کنیم
+                    و حالا بیلد کنیم
+                    حالا میبینیم که تگ هلپر ها رنگشون درست شده یعنی که توسط ریزور پیجز شناخته شدند
+
+                    خب حالا برای بایند مدل کردن این فرم با پراپرتی های مدلمون برگردیم به کد بیهایند
+                    مسئله اینه که به شکل اتومات مدل اوردر بایند مدل نمیشه
+                    چون فکر کنم اوردر داخل پرانتز ان پست نیست که به عنوان پارامتر به اینجا ارسال بشه البته که عضوی از پیج هستش
+                *@
+                <label asp-for="Order.FirstName" class="form-label"></label>
+                <input asp-for="Order.FirstName" class="form-control" />
+                <span asp-validation-for="Order.FirstName" class="text-danger"></span>
+            </section>
+            <section class="col-12">
+                <label asp-for="Order.LastName" class="form-label"></label>
+                <input asp-for="Order.LastName" class="form-control" />
+            </section>
+            <section class="col-12">
+                <label asp-for="Order.AddressLine1" class="form-label"></label>
+                <input asp-for="Order.AddressLine1" class="form-control" />
+            </section>
+            <section class="col-12">
+                <label asp-for="Order.AddressLine2" class="form-label"></label>
+                <input asp-for="Order.AddressLine2" class="form-control" />
+            </section>
+            <section class="col-6">
+                <label asp-for="Order.City" class="form-label"></label>
+                <input asp-for="Order.City" class="form-control" />
+            </section>
+            <section class="col-6">
+                <label asp-for="Order.ZipCode" class="form-label"></label>
+                <input asp-for="Order.ZipCode" class="form-control" />
+            </section>
+            <section class="col-6">
+                <label asp-for="Order.State" class="form-label"></label>
+                <input asp-for="Order.State" class="form-control" />
+            </section>
+            <section class="col-6">
+                <label asp-for="Order.Country" class="form-label"></label>
+                <input asp-for="Order.Country" class="form-control" />
+            </section>
+            <section class="col-12">
+                <label asp-for="Order.Email" class="form-label">Email Address</label>
+                <input asp-for="Order.Email" class="form-control" />
+            </section>
+            <section class="col-12">
+                <label asp-for="Order.PhoneNumber" class="form-label">Phone Number1</label>
+                <input asp-for="Order.PhoneNumber" class="form-control" />
+            </section>
+            <section class="mt-2">
+                <section class="col-md-offset-2 col-md-5">
+                    <input type="submit" value="Submit Order" class="btn btn-secondary" />
+                </section>
+            </section>
+        </section>
+    </section>
+</form>

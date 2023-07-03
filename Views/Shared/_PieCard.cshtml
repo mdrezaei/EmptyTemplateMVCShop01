@@ -1,0 +1,33 @@
+﻿@model Pie
+
+<section class="col">
+    <figure class="card pie-card">
+        <a class="pie-link" asp-controller="Pie" asp-action="PieDetail" asp-route-id="@Model.PieId">
+        <img src="@Model.ImageThumbnailUrl" class="card-img-top" alt="@Model.Name" title="@Model.Category.CategoryName">
+        </a>
+        <figcaption class="card-body pie-button">
+@*            <h4 class="d-grid">
+                <a class="btn btn-secondary"
+                   asp-controller="ShopingCart"
+                   asp-action="AddToShopingCart"
+                   asp-route-pieId="@Model.PieId">+ Add To Cart</a>
+            </h4>*@
+
+            <section class="d-flex justify-content-between mt-2">
+                <h2 class="text-start">
+                    <a class="pie-link" asp-controller="Pie" asp-action="PieDetail" asp-route-id="@Model.PieId">@Model.Name</a>
+                    @*
+                    تگ هلپر ای اس پی کنترلر که کنترلر رو مشخص میکنه
+                    تگ هلپر ای اس پی اکشن هم که متدی که اکشن و ویو رو مشخص میکنه رو مشخص میکنه
+                    تگ هلپر روت هم پارامتری که باید برگرده رو مشخص میکنه اینجا اون پارامتر ای دی بود پس قسمت سوم میشه
+                    اسم هرچی که ما به عنوان پارامتر نام گذاری کردیم
+                    و بعد مساوی با مقدارش
+                    *@
+                </h2>
+                <h5 class="text-nowrap">
+                    @Model.Price.ToString("#,0.00 $")
+                </h5>
+            </section>
+        </figcaption>
+    </figure>
+</section>
