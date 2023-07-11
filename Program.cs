@@ -2,6 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 //این برای بیلدر دات اس کیو ال سرور اد و یوزینگ شد
+using System.Text.Json.Serialization;
+//این برای ایگنور شدن سایکل ها و لوپ ها هنگام  تبدیل مدل ها و ابجکت ها به جیسان اضافه شد 
+//توضیحاتش در ای پی ای سرچ موجوده
 
 //پروگرام سی اس کلاس برنامه ما هست
 //اینجا پرگرام سی اس یک کنسول اپ هست
@@ -35,9 +38,13 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddRazorPages();
 //فریمرک ریزور پیجز
 
-builder.Services.AddControllersWithViews();//*
+builder.Services.AddControllersWithViews().AddJsonOptions(option =>
+{
+    option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});//*
 //اد کنترل ویف ویو اکستنشن متد خود فریمورک هستش و کمک میکنه تا الگوی ام وی سی قابل اجرا باشد
 //از سرویس های خود فریمورک هستش
+//اد جیسان اپشنز توضیحش رو دادم در ای پی ای سرچ
 
 //builder.Services.AddScoped<ILoggerService , LoggerService() >;
 //این سرویس سرویس رو ما کاستوم اوردیمش . یعنی برای فریمورک نیست
