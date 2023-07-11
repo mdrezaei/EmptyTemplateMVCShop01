@@ -51,6 +51,12 @@ builder.Services.AddDbContext<EmptyMVCShop01DbContext>(options =>
     options.UseSqlServer(builder.Configuration["ConnectionStrings:EmptyMVCShop01DbContextConnection"]);
 });
 
+//builder.Services.AddControllers();
+//برای ای پی ای هستش و ساپورت برای کنترلر هارو میاره
+//ما تا الان اد کنترلرز ویف ویو رو هم اد کرده بودیم که متفاوته با این یکی
+//و از اونجایی که ما کنترلرز ویف ویو رو داریم به این نیازی نداریم و میتونیم حذفش کنیم پس من امنتش میکنم
+
+
 var app = builder.Build();//*
 //بیلدر میاد و به سرویس ها دسترسی ایجاد میکنه تا نرم افزار بتونه ازشون استفاده کنه و دسترسی داشته باشه
 //و شرایط استفاده از اون سرویس ها رو ایجاد میکنه
@@ -107,6 +113,11 @@ app.MapDefaultControllerRoute();//*
 
 app.MapRazorPages();
 //میدل ور ریزور پیجز
+
+//app.MapControllers();
+//این هم روتینگ ای پی ای رو ساپورت میکنه ولی از اونجایی که ما مپ دیفالت کنترلرز روت رو اضافه کردیم دیگه به این هم احتیاجی
+//نداریم ولی اگه فقط ای پی ای میخواستیم بسازیم فقط از این استفاده میکردیم و بیلدر سرویسس اد کنترلرز
+//پس من کامنتش میکنم
 
 DbInitializer.Seed(app);
 
