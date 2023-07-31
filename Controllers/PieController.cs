@@ -101,5 +101,12 @@ namespace EmptyMVCShop01.Controllers
             }
             return View(pie);
         }
+
+        public IActionResult Search()
+        {
+            return View();
+            //همین لازم نیست چیز دیگه ای برگردونیم باقیش توی کلاینت ساید با جیکوئری انجام میشه
+            //بعد هم بریم صفحه ویو سی اس اچ تی ام ال اون رو بسازیم توی پوشه پای ویو ها
+        }
     }
 }

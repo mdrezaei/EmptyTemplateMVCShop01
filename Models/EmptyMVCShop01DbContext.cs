@@ -1,11 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+//نیم اسپیس مورد نیاز ایدنتیتی دی بی کانتکس
+using Microsoft.EntityFrameworkCore;
 //برای ارث بری از دی بی کانتکست یوزینگ میشه
 //و باید از قبل پکیج های ناگت رو اد کرده باشیم
 
 
 namespace EmptyMVCShop01.Models
 {
-    public class EmptyMVCShop01DbContext:DbContext
+    //public class EmptyMVCShop01DbContext:DbContext
+    //این بالایی داره از دیبی کانتکس خالی ارث بری میکنه ولی پایینی داره از ایدنتیتی دی بی کانتکس ارث بری میکنه
+    //این جوری دیبی کانتکس درباره یوزر و این که رول یوزر چیه و چه نقشی داره و اینکه یوزر کی هست و اطلاعاتش چیه اطلاع پیدا میکنه
+    //البته که باید نیم اسپیسش یوزینگ بشه
+    //بعد از این بریم توی پرگرام دات سی اس و میدل ور اتنتیکیشن رو اضافه کنیم تا دی بی کانتکس کارش رو بتونه انجام بده
+    public class EmptyMVCShop01DbContext:IdentityDbContext
     {
         //یک: کانستراکتور میسازیم کهیک اینستنس از دی بی کانتکست اپشن داشته باشه
         public EmptyMVCShop01DbContext(DbContextOptions<EmptyMVCShop01DbContext> options) : base(options) 

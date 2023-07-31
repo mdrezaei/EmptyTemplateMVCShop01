@@ -58,8 +58,9 @@ namespace EmptyMVCShop01.Models
 
         public IEnumerable<Pie> SearchPies(string searchQuery)
         {
-            throw new NotImplementedException();
+            return _dbContext.Pies.Where(p => p.Name.Contains(searchQuery));
         }
+
     }
 }
 

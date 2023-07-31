@@ -1,8 +1,10 @@
 ﻿using EmptyMVCShop01.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmptyMVCShop01.Controllers
 {
+    //[Authorize]
     public class OrderController : Controller
     {
         private readonly IShopingCart _shopingCart;
@@ -21,7 +23,9 @@ namespace EmptyMVCShop01.Controllers
         //مثلن وقتی بگیم ای اکشن ریزالت برگردونه هر تابعی رو میشه برگردوند ولی اگه بگیم اکشن ریزالت برگردونه هر تابعی رو نمیشه 
         //ولی اگه بخوایم از کلاس ها و متد های ارث بری از اکشن ریزالت استفاده کنیم میتونیم از اسم خود اون تابع که برگرده استفاده کنیم
         //خوب نتونستم توضیح بدم . مثالش توی سایت سیشارپ کرنر هست . دیفرنس بتوین ای اکشن ریزالت و اکشن ریزالت
-
+        
+        
+        [Authorize]
         public IActionResult Checkout()//این اکشن متد با گت کار میکنه اصن وقتی مرورگر باز میکنه سایتو فراخوانی میشه
         {
             return View();

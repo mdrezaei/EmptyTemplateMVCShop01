@@ -1,4 +1,4 @@
-﻿using EmptyMVCShop01.Models;
+using EmptyMVCShop01.Models;
 
 using Microsoft.EntityFrameworkCore;
 //این برای بیلدر دات اس کیو ال سرور اد و یوزینگ شد
@@ -10,11 +10,17 @@ using System.Text.Json.Serialization;
 //اینجا پرگرام سی اس یک کنسول اپ هست
 //متد مین و کلاس و نیم اسپیس نداره
 //چون از تاپ لول استیت منت استفاده کرده. تنها فایلی هست که میتونه از تاپ لول استیت منت استفاده کنه
-//
 
+using Microsoft.AspNetCore.Identity;
+//اینو اسکافلدینگ ایدنتیتی ادش کرد
+//اسکافلدینگ همچنین باعث تعغیر کانکشن استرینگ شده
+//و همچنین اد دی بی کانتکس هم تعغیر کرده
+//همچنین سرویس اد دیفالت ایدنتیتی رو هم اضافه کرده
+//و همچنین یک فولدر جدید هم داریم به اسم اریاز که برمیگردیم داخل کامنت ها برای ادامش
 
 
 var builder = WebApplication.CreateBuilder(args);//*
+var connectionString = builder.Configuration.GetConnectionString("EmptyMVCShop01DbContextConnection") ?? throw new InvalidOperationException("Connection string 'EmptyMVCShop01DbContextConnection' not found.");
 //اینجا وب اپلیکیشن کریت بیلدر میاد دیفالت رو برامون میاره و موقع ران میره و فایل اپ ستینگ دات جیسون رو میاره
 //چک میکنه ای ای اس باشه و لوکال سرور کسترول هم باشه
 //کرییت بیلدر خب مشخصا بیلدر رو کرییت میکنه برای وب اپلیکیشن
@@ -38,9 +44,9 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddRazorPages();
 //فریمرک ریزور پیجز
 
-builder.Services.AddControllersWithViews().AddJsonOptions(option =>
+builder.Services.AddControllersWithViews().AddJsonOptions(options =>
 {
-    option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });//*
 //اد کنترل ویف ویو اکستنشن متد خود فریمورک هستش و کمک میکنه تا الگوی ام وی سی قابل اجرا باشد
 //از سرویس های خود فریمورک هستش
@@ -53,16 +59,30 @@ builder.Services.AddControllersWithViews().AddJsonOptions(option =>
 //var app = builder.Build();
 //ساخته بشه پس در نتیجه برای اد کردن سرویس به بیلدر باید بالای اون بیلدر دات بیلد مساوی با ور اپ کد اد کردن سرویس رو نوشت
 
-builder.Services.AddDbContext<EmptyMVCShop01DbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration["ConnectionStrings:EmptyMVCShop01DbContextConnection"]);
-});
-
 //builder.Services.AddControllers();
 //برای ای پی ای هستش و ساپورت برای کنترلر هارو میاره
 //ما تا الان اد کنترلرز ویف ویو رو هم اد کرده بودیم که متفاوته با این یکی
 //و از اونجایی که ما کنترلرز ویف ویو رو داریم به این نیازی نداریم و میتونیم حذفش کنیم پس من امنتش میکنم
 
+
+builder.Services.AddDbContext<EmptyMVCShop01DbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:EmptyMVCShop01DbContextConnection"]);
+});
+
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<EmptyMVCShop01DbContext>();
+//کارش اوردن متداول ترین ابزار ایدنتیتی هستش و کلااس ها و سرویس ها پکیج هاشون
+//دقیقا مانند اد کنترلرز ویف ویو کار میکنه ولی این بار برای ایدنتیتی
+//و بعد میگه از انتیتی فریمورک استفاده کن برای استور یوزر هامون در ایدنتیتی دی بی کانتکس مون 
+//وسطشون یه اپشن ساین این داره که میگه فقط برای اکانت هایی که تایید شده ولی ما حذفش میکنیم تا یه چیز ابتدایی رو درست کنیم
+builder.Services.AddDefaultIdentity<IdentityUser>()
+    .AddEntityFrameworkStores<EmptyMVCShop01DbContext>();
+
+
+builder.Services.AddServerSideBlazor();
+//این برای بلیزور سرور
+//میدلور هاش رو میریم پایین
 
 var app = builder.Build();//*
 //بیلدر میاد و به سرویس ها دسترسی ایجاد میکنه تا نرم افزار بتونه ازشون استفاده کنه و دسترسی داشته باشه
@@ -84,6 +104,22 @@ app.UseStaticFiles();//*
 //استاتیک رو میخوان و شرت سیرکت درست میکنه تا پرفورمنس سریع تر شه
 
 app.UseSession();
+
+app.UseAuthentication();
+//خب چون نیاز هست که دیتا بیس اپدیت بشه پس باید اول دی بی کانتکس رو اپدیت کنیم ولی
+//چون قبلن ایدنتیتی دی بی کانتکس رو جایگزین کردیم
+//ایدنتیتی دی بی کانتکس کار رو برای ما انجام میده فقط کافیه که ما بیلد کنیم و مایگریشن رو کریئیت کنیم
+//در پکیج منیجر کنسول
+//add-migration
+//بعد از اد میگریشن میبینیم که انتیتی فریمورک اومده برای ما تیبل ای اس پی نت رولز ساخته و 
+//ای اس پی نت یوزرز و 
+//ای اس پی نت رول کلیمز و یه عالمه تیبل دیگه
+//حالا
+//update-database کنیم
+//تمام
+
+app.UseAuthorization();
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -125,6 +161,12 @@ app.MapRazorPages();
 //این هم روتینگ ای پی ای رو ساپورت میکنه ولی از اونجایی که ما مپ دیفالت کنترلرز روت رو اضافه کردیم دیگه به این هم احتیاجی
 //نداریم ولی اگه فقط ای پی ای میخواستیم بسازیم فقط از این استفاده میکردیم و بیلدر سرویسس اد کنترلرز
 //پس من کامنتش میکنم
+
+
+app.MapBlazorHub();
+app.MapFallbackToPage("/app/{*catchall}", "/app/index");
+//میدلور های بلیزور
+//این فال بک تو پیج با فال بک فرق داره ولی کار کلیشون یکی هست
 
 DbInitializer.Seed(app);
 

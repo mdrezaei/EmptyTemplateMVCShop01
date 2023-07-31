@@ -83,5 +83,28 @@ namespace EmptyMVCShop01.Controllers.Api
         //پس وارد لوپ بی نهایت میشه . برای حل این مشکل ما یک چیزی رو باید به پرگرام اضافه کنیم و دقیقن بعد از سرویس بیلدر اد کنترلرز
         //یا کنترلرز ویف ویو . بسته به اینکه کدوم رو داریم استفاده میکنیم
         //این سرویس باعث میشه که در کنترلر ها هنگام تبدیل دیتا به جیسان لوپ ها و سایکل ها رو ندیده بگیره
+
+        //برای اجراش هم ما ران میکنیم و توی یو ار ال مینویسیم 
+        //    .../api/search
+
+        [HttpPost]
+        public IActionResult SearchPies([FromBody]string searchQuery)
+        {
+            //برای نوشتن این قسمت اول بریم توی ای پای ریپوزیتوری و اضافه کنیم قسمتی رو برای سرچ
+
+            IEnumerable<Pie> pies = new List<Pie>();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                pies = _pieRepository.SearchPies(searchQuery);
+            }
+            else
+            {
+                pies = _pieRepository.AllPies;
+            }
+            return new JsonResult(pies);
+            //این کد میگه که میخوام ریزالتم به شکل جیسان بره
+            //و استاتوس کد 200 برگردونه
+        }
     }
 }
